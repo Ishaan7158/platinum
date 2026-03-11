@@ -3,40 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platinum Launcher | Mac Download</title>
+    <title>Platinum Launcher | Mac Setup</title>
     <style>
         body { background: #0b0b0b; color: #eee; font-family: 'Inter', -apple-system, sans-serif; text-align: center; padding: 40px; line-height: 1.6; }
-        .card { background: #161616; border: 1px solid #333; border-radius: 20px; padding: 40px; display: inline-block; max-width: 600px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .card { background: #161616; border: 1px solid #333; border-radius: 20px; padding: 40px; display: inline-block; max-width: 650px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
         h1 { color: #00ffcc; margin: 0; font-size: 2.5rem; text-transform: uppercase; }
         .step { text-align: left; background: #222; padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #00ffcc; }
-        code { background: #000; color: #00ffcc; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 0.95rem; display: block; margin-top: 10px; word-break: break-all; }
-        .btn { display: block; background: #00ffcc; color: #000; padding: 20px; border-radius: 12px; font-size: 22px; font-weight: bold; text-decoration: none; margin: 30px 0; transition: 0.3s; }
-        .btn:hover { background: #00e6b8; transform: translateY(-2px); }
-        .warning { color: #ff4444; font-weight: bold; font-size: 0.9rem; margin-top: 10px; }
-        a { color: #00ffcc; text-decoration: none; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .btn { display: block; background: #333; color: #fff; padding: 12px; border-radius: 8px; font-weight: bold; text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
+        .btn:hover { background: #444; transform: translateY(-2px); }
+        .btn.main { background: #00ffcc; color: #000; font-size: 1.2rem; padding: 20px; margin: 30px 0; }
+        .btn.main:hover { background: #00e6b8; }
+        code { background: #000; color: #00ffcc; padding: 10px; border-radius: 4px; font-family: monospace; display: block; margin-top: 10px; word-break: break-all; border: 1px solid #333; }
+        .warning { color: #ff4444; font-weight: bold; font-size: 0.85rem; margin-top: 10px; }
+        small { color: #888; display: block; margin-bottom: 5px; }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>Platinum Launcher</h1>
-        <p>Follow these steps to play Minecraft 1.21.1 on macOS</p>
+        <p>Complete these 3 steps to play Minecraft 1.21.1</p>
 
-        <!-- DOWNLOAD BUTTON -->
-        <a href="https://drive.google.com" class="btn" target="_blank">1. DOWNLOAD LAUNCHER (ZIP)</a>
-
+        <!-- STEP 1: DOWNLOAD LAUNCHER -->
         <div class="step">
-            <strong>2. Install Requirements</strong><br>
-            You must install <a href="https://nodejs.org" target="_blank">Node.js</a> and <a href="https://www.oracle.com" target="_blank">Java 21</a> first.
+            <strong>STEP 1: Download Launcher</strong>
+            <a href="https://drive.google.com" class="btn main" target="_blank">DOWNLOAD PLATINUM (ZIP)</a>
         </div>
 
+        <!-- STEP 2: REQUIREMENTS -->
         <div class="step">
-            <strong>3. Fix "App Damaged" & Start</strong><br>
-            Extract the ZIP to your <b>Desktop</b>. Open <b>Terminal</b> and paste this entire command:
+            <strong>STEP 2: Install Requirements</strong>
+            <p>You need both Node.js and Java 21 to run the launcher.</p>
+            
+            <small>Node.js (LTS v22+):</small>
+            <a href="https://nodejs.org" class="btn">Download Node.js (.pkg)</a>
+
+            <br>
+            <small>Oracle Java 21 (Choose your Mac type):</small>
+            <div class="btn-grid">
+                <a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">Apple Chip (M1/M2/M3)</a>
+                <a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">Intel Chip (Older Macs)</a>
+            </div>
+        </div>
+
+        <!-- STEP 3: TERMINAL COMMAND -->
+        <div class="step">
+            <strong>STEP 3: Fix "Damaged" Error & Start</strong>
+            <p>Extract the ZIP to your <b>Desktop</b>. Copy and paste this into <b>Terminal</b>:</p>
             <code>sudo xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/PlatinumLauncher && npm start</code>
-            <p class="warning">⚠️ You will need to type your Mac password after hitting Enter (you won't see dots as you type).</p>
+            <p class="warning">⚠️ Type your Mac password and press Enter (Characters won't show while typing).</p>
         </div>
-
-        <p style="color: #666; font-size: 0.8rem;">Note: This removes the macOS "Quarantine" tag so Electron can run.</p>
     </div>
 </body>
 </html>
