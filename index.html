@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Platinum Launcher | Download</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Launcher | Mac Download</title>
     <style>
-        body { background: #0f0f0f; color: #e0e0e0; font-family: sans-serif; text-align: center; padding: 40px; }
-        .container { background: #1a1a1a; border: 1px solid #333; border-radius: 20px; padding: 40px; display: inline-block; max-width: 500px; }
-        h1 { color: #00ffcc; }
-        .btn { display: block; background: #00ffcc; color: #000; padding: 20px; border-radius: 12px; font-size: 20px; font-weight: bold; margin-top: 30px; text-decoration: none; }
+        body { background: #0b0b0b; color: #eee; font-family: 'Inter', -apple-system, sans-serif; text-align: center; padding: 40px; line-height: 1.6; }
+        .card { background: #161616; border: 1px solid #333; border-radius: 20px; padding: 40px; display: inline-block; max-width: 600px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        h1 { color: #00ffcc; margin: 0; font-size: 2.5rem; text-transform: uppercase; }
+        .step { text-align: left; background: #222; padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid #00ffcc; }
+        code { background: #000; color: #00ffcc; padding: 4px 8px; border-radius: 4px; font-family: monospace; font-size: 0.95rem; display: block; margin-top: 10px; word-break: break-all; }
+        .btn { display: block; background: #00ffcc; color: #000; padding: 20px; border-radius: 12px; font-size: 22px; font-weight: bold; text-decoration: none; margin: 30px 0; transition: 0.3s; }
+        .btn:hover { background: #00e6b8; transform: translateY(-2px); }
+        .warning { color: #ff4444; font-weight: bold; font-size: 0.9rem; margin-top: 10px; }
+        a { color: #00ffcc; text-decoration: none; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="card">
         <h1>Platinum Launcher</h1>
-        <p>1. Install <a href="https://nodejs.org" style="color:#00ffcc">Node.js</a> & <a href="https://www.oracle.com" style="color:#00ffcc">Java 21</a></p>
-        <a href="https://drive.google.com" class="btn">DOWNLOAD FOR MAC</a>
-        <p style="font-size:12px; color:#666; margin-top:20px;">If blocked, Right-Click > Open</p>
+        <p>Follow these steps to play Minecraft 1.21.1 on macOS</p>
+
+        <!-- DOWNLOAD BUTTON -->
+        <a href="https://drive.google.com" class="btn" target="_blank">1. DOWNLOAD LAUNCHER (ZIP)</a>
+
+        <div class="step">
+            <strong>2. Install Requirements</strong><br>
+            You must install <a href="https://nodejs.org" target="_blank">Node.js</a> and <a href="https://www.oracle.com" target="_blank">Java 21</a> first.
+        </div>
+
+        <div class="step">
+            <strong>3. Fix "App Damaged" & Start</strong><br>
+            Extract the ZIP to your <b>Desktop</b>. Open <b>Terminal</b> and paste this entire command:
+            <code>sudo xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/PlatinumLauncher && npm start</code>
+            <p class="warning">⚠️ You will need to type your Mac password after hitting Enter (you won't see dots as you type).</p>
+        </div>
+
+        <p style="color: #666; font-size: 0.8rem;">Note: This removes the macOS "Quarantine" tag so Electron can run.</p>
     </div>
 </body>
 </html>
