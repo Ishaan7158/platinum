@@ -18,9 +18,9 @@ font-family:'Inter',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#6dd5fa,#c77dff,#ff9a9e);
+background:linear-gradient(135deg,#5ee7df,#b490ca,#ff9a9e);
 min-height:100vh;
-color:#222;
+color:#333;
 }
 
 /* NAVBAR */
@@ -28,7 +28,7 @@ color:#222;
 nav{
 display:flex;
 justify-content:center;
-gap:30px;
+gap:25px;
 padding:20px;
 font-weight:600;
 }
@@ -37,7 +37,7 @@ nav a{
 cursor:pointer;
 padding:10px 18px;
 border-radius:10px;
-background:rgba(255,255,255,0.5);
+background:rgba(255,255,255,0.6);
 transition:0.2s;
 }
 
@@ -46,7 +46,7 @@ background:white;
 transform:translateY(-2px);
 }
 
-/* CONTAINER */
+/* MAIN CONTAINER */
 
 .container{
 max-width:900px;
@@ -54,11 +54,9 @@ margin:auto;
 padding:40px 20px;
 }
 
-/* TITLE */
-
 h1{
 text-align:center;
-font-size:2.8rem;
+font-size:2.7rem;
 color:#5a3df0;
 margin-bottom:30px;
 }
@@ -67,17 +65,17 @@ margin-bottom:30px;
 
 .card{
 background:white;
-padding:30px;
-border-radius:18px;
+padding:28px;
+border-radius:16px;
 margin-bottom:25px;
-box-shadow:0 12px 35px rgba(0,0,0,0.12);
+box-shadow:0 12px 35px rgba(0,0,0,0.1);
 }
 
 .card h3{
 margin-bottom:10px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 
 .btn{
 display:block;
@@ -93,8 +91,8 @@ transition:0.2s;
 }
 
 .btn:hover{
-opacity:0.9;
 transform:translateY(-2px);
+opacity:0.95;
 }
 
 /* GRID */
@@ -105,7 +103,7 @@ grid-template-columns:1fr 1fr;
 gap:10px;
 }
 
-/* TERMINAL */
+/* CODE BOX */
 
 code{
 background:#f3f3f3;
@@ -117,9 +115,11 @@ font-family:monospace;
 word-break:break-all;
 }
 
+/* COPY BUTTON */
+
 .copy{
 margin-top:10px;
-padding:10px;
+padding:10px 14px;
 border:none;
 border-radius:8px;
 background:#5a3df0;
@@ -127,7 +127,7 @@ color:white;
 cursor:pointer;
 }
 
-/* PAGES */
+/* PAGE SWITCHING */
 
 .page{
 display:none;
@@ -142,8 +142,8 @@ display:block;
 footer{
 text-align:center;
 padding:30px;
+font-size:15px;
 color:#333;
-font-weight:500;
 }
 
 /* MOBILE */
@@ -181,7 +181,7 @@ font-size:2rem;
 
 <div class="card">
 
-<h3>Step 1: Download Launcher</h3>
+<h3>Step 1 — Download Launcher</h3>
 
 <a href="https://drive.google.com" class="btn">
 Download Platinum Launcher
@@ -191,7 +191,7 @@ Download Platinum Launcher
 
 <div class="card">
 
-<h3>Step 2: Install Requirements</h3>
+<h3>Step 2 — Install Requirements</h3>
 
 <a href="https://nodejs.org" class="btn">
 Download Node.js
@@ -213,7 +213,7 @@ Intel Mac
 
 <div class="card">
 
-<h3>Step 3: Start Launcher</h3>
+<h3>Step 3 — Start Launcher</h3>
 
 <p>Extract the ZIP to your Desktop and run this command in Terminal:</p>
 
@@ -231,10 +231,10 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 
 <ul>
 <li>Extremely simple setup</li>
+<li>Beginner friendly</li>
 <li>Fast Minecraft launching</li>
 <li>Works with many mods and worlds</li>
 <li>No complicated installation</li>
-<li>Beginner friendly</li>
 </ul>
 
 </div>
@@ -252,8 +252,8 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 <h3>X-Ray Resource Pack</h3>
 
 <p>
-Download the X-Ray resource pack and place it inside the
-<b>resourcepacks</b> folder in Minecraft.
+Download the X-Ray resource pack and place it inside your
+<b>resourcepacks</b> folder.
 Then enable it in Minecraft settings.
 </p>
 
@@ -264,37 +264,35 @@ Then enable it in Minecraft settings.
 <h3>OneBlock World</h3>
 
 <p>
-Download the OneBlock world file and place it in the
-<b>saves</b> folder. The world will appear automatically
-when you open Minecraft.
+Download the OneBlock world and place it in the
+<b>saves</b> folder.
+When you open Minecraft the world will appear automatically.
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>Supported Files</h3>
+<h3>Other Supported Files</h3>
 
 <ul>
 <li>Resource Packs</li>
 <li>Datapacks</li>
-<li>Custom Worlds</li>
 <li>Shaders</li>
+<li>Custom Worlds</li>
 </ul>
 
-<p>
-Note: .jar mods are not supported.
-</p>
+<p>Note: .jar mods are not supported.</p>
 
 </div>
 
 <div class="card">
 
-<h3>How Easy It Is</h3>
+<h3>How Simple It Is</h3>
 
 <p>
-Most mods just require placing files in the correct folder.
-After that simply launch Minecraft and enable them in settings.
+Most mods only require placing files in the correct Minecraft folder.
+After that launch Minecraft and enable them in the game settings.
 </p>
 
 </div>
@@ -313,8 +311,8 @@ After that simply launch Minecraft and enable them in settings.
 
 <p>
 Our support team is available <b>24 hours a day, 7 days a week</b>.
-If you have any issues installing the launcher or running Minecraft,
-we are here to help.
+If you have issues installing the launcher or running Minecraft,
+we will help you resolve them as quickly as possible.
 </p>
 
 </div>
@@ -335,17 +333,13 @@ Your safety and experience are our priority.
 
 <h3>Contact Support</h3>
 
-<p>
-Email us anytime:
-</p>
+<p>Email us anytime:</p>
 
 <p style="font-weight:bold;font-size:18px;">
 ishaandiwaker2013@gmail.com
 </p>
 
-<p>
-Please include screenshots or error messages when possible.
-</p>
+<p>Please include screenshots or error messages if possible.</p>
 
 </div>
 
@@ -356,7 +350,8 @@ Please include screenshots or error messages when possible.
 <footer>
 
 Created by <b>Ishaan Diwaker</b><br><br>
-Thank you for using Platinum Launcher — we hope you enjoy using it!
+Thank you for using Platinum Launcher.<br>
+We hope you enjoy using it!
 
 </footer>
 
