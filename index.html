@@ -18,10 +18,10 @@ cursor:url("https://cur.cursors-4u.net/games/gam-15/gam1422.cur"),auto;
 }
 
 body{
-background:linear-gradient(135deg,#3b82f6,#9333ea);
+background:linear-gradient(135deg,#4f46e5,#9333ea);
 min-height:100vh;
-color:white;
 display:flex;
+color:white;
 }
 
 /* PASSWORD */
@@ -32,7 +32,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,#3b82f6,#9333ea);
+background:linear-gradient(135deg,#4f46e5,#9333ea);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -41,7 +41,7 @@ z-index:9999;
 
 .lockbox{
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(10px);
+backdrop-filter:blur(12px);
 padding:40px;
 border-radius:15px;
 text-align:center;
@@ -65,6 +65,7 @@ border-radius:8px;
 background:#22c55e;
 color:white;
 font-weight:600;
+cursor:pointer;
 }
 
 /* SIDEBAR */
@@ -72,15 +73,15 @@ font-weight:600;
 .sidebar{
 width:230px;
 background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
+backdrop-filter:blur(15px);
 padding:25px;
 display:flex;
 flex-direction:column;
-gap:20px;
+gap:18px;
 }
 
 .sidebar h2{
-font-size:1.3rem;
+font-size:1.4rem;
 }
 
 .sidebar button{
@@ -94,6 +95,16 @@ cursor:pointer;
 
 .sidebar button:hover{
 background:rgba(255,255,255,0.3);
+}
+
+/* TEAM PANEL */
+
+.team{
+margin-top:auto;
+background:rgba(255,255,255,0.2);
+padding:15px;
+border-radius:10px;
+font-size:0.9rem;
 }
 
 /* MAIN */
@@ -111,13 +122,11 @@ display:none;
 display:block;
 }
 
-/* GLASS CARD */
-
 .card{
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(12px);
 padding:25px;
-border-radius:15px;
+border-radius:14px;
 margin-bottom:20px;
 }
 
@@ -159,19 +168,9 @@ color:white;
 cursor:pointer;
 }
 
-/* TEAM PANEL */
-
-.team{
-margin-top:auto;
-background:rgba(255,255,255,0.15);
-padding:15px;
-border-radius:12px;
-font-size:0.9rem;
-}
-
 footer{
 margin-top:40px;
-opacity:0.8;
+opacity:0.85;
 }
 
 </style>
@@ -206,16 +205,17 @@ opacity:0.8;
 <b>Team</b><br><br>
 👑 Owner<br>
 Ishaan<br><br>
-
 🛠 Co-Owner / Support Head<br>
 Panshul
 </div>
 
 </div>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 
 <div class="main">
+
+<!-- HOME -->
 
 <div id="home" class="page active">
 
@@ -253,6 +253,8 @@ Java (Intel)
 
 </div>
 
+<!-- INSTRUCTIONS -->
+
 <div id="instructions" class="page">
 
 <h1>Setup Instructions</h1>
@@ -262,11 +264,14 @@ Java (Intel)
 <p>Follow these steps:</p>
 
 <ol style="margin-top:10px;line-height:1.8">
+
 <li>Download Node.js and Java.</li>
 <li>Download Platinum Launcher.</li>
-<li>Unzip the launcher.</li>
-<li>Drag the PlatinumLauncher folder to Desktop.</li>
-<li>Open Terminal and paste the command.</li>
+<li>Unzip the launcher ZIP file.</li>
+<li>Drag the <b>PlatinumLauncher</b> folder to your Desktop.</li>
+<li>Open Terminal.</li>
+<li>Paste the command below.</li>
+
 </ol>
 
 <code id="cmd">
@@ -279,31 +284,34 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 
 </div>
 
+<!-- MODS -->
+
 <div id="mods" class="page">
 
 <h1>Mods</h1>
 
 <div class="card">
 <b>X-Ray</b><br>
-Put the resource pack in the resourcepacks folder.
+Place the resource pack inside the <b>resourcepacks</b> folder.
 </div>
 
 <div class="card">
 <b>OneBlock</b><br>
-Place the world in the saves folder.
+Put the downloaded world inside the <b>saves</b> folder.
 </div>
 
 <div class="card">
-<b>Supported</b><br>
+<b>Supported Content</b><br>
 Resource Packs<br>
-Datapacks<br>
 Shaders<br>
-Worlds
-<br><br>
+Datapacks<br>
+Worlds<br><br>
 Jar mods are not supported.
 </div>
 
 </div>
+
+<!-- SUPPORT -->
 
 <div id="support" class="page">
 
@@ -331,12 +339,15 @@ Hope you enjoy using Platinum Launcher!
 <script>
 
 function checkPass(){
+
 let pass=document.getElementById("pass").value
+
 if(pass==="D1$ney1234"){
 document.getElementById("lockscreen").style.display="none"
 }else{
 document.getElementById("error").innerText="Incorrect password"
 }
+
 }
 
 function showPage(page){
