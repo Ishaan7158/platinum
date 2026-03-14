@@ -14,6 +14,12 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Inter',sans-serif;
+cursor:url("https://cur.cursors-4u.net/games/gam-15/gam1422.cur"),auto;
+}
+
+body{
+background:#f3f4f6;
+color:#1f2937;
 }
 
 /* PASSWORD SCREEN */
@@ -24,7 +30,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,#5ee7df,#b490ca,#ff9a9e);
+background:#e5e7eb;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -34,65 +40,50 @@ z-index:9999;
 .lockbox{
 background:white;
 padding:40px;
-border-radius:16px;
-box-shadow:0 20px 40px rgba(0,0,0,0.2);
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 text-align:center;
-max-width:350px;
-width:90%;
-}
-
-.lockbox h2{
-margin-bottom:15px;
+width:320px;
 }
 
 .lockbox input{
 width:100%;
 padding:12px;
+margin-top:10px;
 border-radius:8px;
 border:1px solid #ccc;
-margin-top:10px;
 }
 
 .lockbox button{
-margin-top:15px;
+margin-top:10px;
+width:100%;
 padding:12px;
 border:none;
 border-radius:8px;
-background:#5a3df0;
+background:#2563eb;
 color:white;
 font-weight:600;
 cursor:pointer;
-width:100%;
 }
 
-/* MAIN SITE */
-
-body{
-background:linear-gradient(135deg,#5ee7df,#b490ca,#ff9a9e);
-min-height:100vh;
-color:#333;
-}
+/* NAVBAR */
 
 nav{
 display:flex;
 justify-content:center;
 gap:25px;
 padding:20px;
+background:white;
+border-bottom:1px solid #ddd;
 font-weight:600;
 }
 
 nav a{
 cursor:pointer;
-padding:10px 18px;
-border-radius:10px;
-background:rgba(255,255,255,0.6);
-transition:0.2s;
+color:#374151;
 }
 
-nav a:hover{
-background:white;
-transform:translateY(-2px);
-}
+/* MAIN */
 
 .container{
 max-width:900px;
@@ -102,53 +93,53 @@ padding:40px 20px;
 
 h1{
 text-align:center;
-font-size:2.8rem;
-color:#5a3df0;
 margin-bottom:30px;
+font-size:2.4rem;
 }
 
 .card{
 background:white;
-padding:28px;
-border-radius:16px;
-margin-bottom:25px;
-box-shadow:0 12px 35px rgba(0,0,0,0.12);
+padding:25px;
+border-radius:10px;
+margin-bottom:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
 
 .btn{
 display:block;
 text-align:center;
 padding:14px;
-margin-top:12px;
-border-radius:10px;
-background:linear-gradient(135deg,#00d2ff,#7a5cff);
+margin-top:10px;
+border-radius:8px;
+background:#2563eb;
 color:white;
 text-decoration:none;
-font-weight:700;
+font-weight:600;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
+margin-top:10px;
 }
 
 code{
-background:#f3f3f3;
+background:#f3f4f6;
 padding:14px;
-display:block;
 border-radius:8px;
-margin-top:12px;
+display:block;
+margin-top:10px;
 font-family:monospace;
 word-break:break-all;
 }
 
 .copy{
 margin-top:10px;
-padding:10px 14px;
+padding:10px;
 border:none;
-border-radius:8px;
-background:#5a3df0;
+border-radius:6px;
+background:#2563eb;
 color:white;
 cursor:pointer;
 }
@@ -163,8 +154,8 @@ display:block;
 
 footer{
 text-align:center;
-padding:30px;
-font-size:15px;
+padding:40px 10px;
+color:#6b7280;
 }
 
 </style>
@@ -172,39 +163,36 @@ font-size:15px;
 
 <body>
 
-<!-- PASSWORD SCREEN -->
+<!-- PASSWORD LOCK -->
 
 <div id="lockscreen">
 <div class="lockbox">
-
 <h2>Platinum Launcher Access</h2>
-<p>Enter password to continue</p>
-
-<input type="password" id="password" placeholder="Password">
-
+<input id="password" type="password" placeholder="Password">
 <button onclick="checkPassword()">Enter</button>
-
 <p id="error" style="color:red;margin-top:10px;"></p>
-
 </div>
 </div>
 
-<!-- SITE CONTENT -->
+<!-- NAVIGATION -->
 
 <nav>
 <a onclick="showPage('home')">Home</a>
+<a onclick="showPage('instructions')">Instructions</a>
 <a onclick="showPage('mods')">Mods</a>
 <a onclick="showPage('support')">Support</a>
 </nav>
 
 <div class="container">
 
+<!-- HOME -->
+
 <div id="home" class="page active">
 
 <h1>Platinum Launcher</h1>
 
 <div class="card">
-<h3>Step 1 — Download Launcher</h3>
+<h3>Download Launcher</h3>
 
 <a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn">
 Download Platinum Launcher
@@ -213,32 +201,49 @@ Download Platinum Launcher
 </div>
 
 <div class="card">
+<h3>Requirements</h3>
 
-<h3>Step 2 — Install Requirements</h3>
-
-<a href="https://nodejs.org" class="btn">
-Download Node.js
-</a>
+<a href="https://nodejs.org" class="btn">Download Node.js</a>
 
 <div class="grid">
 
 <a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">
-Apple Silicon
+Apple Silicon Java
 </a>
 
 <a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">
-Intel Mac
+Intel Java
 </a>
 
 </div>
 
 </div>
 
+</div>
+
+<!-- INSTRUCTIONS PAGE -->
+
+<div id="instructions" class="page">
+
+<h1>Setup Instructions</h1>
+
 <div class="card">
 
-<h3>Step 3 — Start Launcher</h3>
+<p>Follow these steps carefully to start the launcher:</p>
 
-<p>Extract the ZIP to Desktop and run:</p>
+<ol style="margin-top:15px;line-height:1.8">
+
+<li>Download all required files (Node.js, Java, Platinum Launcher).</li>
+
+<li>Unzip the <b>PlatinumLauncher.zip</b> file.</li>
+
+<li>Drag the <b>PlatinumLauncher</b> folder to your <b>Desktop</b>.</li>
+
+<li>Open <b>Terminal</b>.</li>
+
+<li>Paste the command below.</li>
+
+</ol>
 
 <code id="cmd">
 xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/PlatinumLauncher && npm start
@@ -250,13 +255,15 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 
 </div>
 
+<!-- MODS -->
+
 <div id="mods" class="page">
 
 <h1>Mods</h1>
 
 <div class="card">
 <h3>X-Ray Resource Pack</h3>
-<p>Place the resource pack inside the <b>resourcepacks</b> folder and enable it in Minecraft settings.</p>
+<p>Place the X-Ray pack inside the <b>resourcepacks</b> folder and enable it in Minecraft settings.</p>
 </div>
 
 <div class="card">
@@ -266,16 +273,18 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 
 <div class="card">
 <h3>Supported Files</h3>
-<ul>
+<ul style="margin-top:10px;line-height:1.8">
 <li>Resource Packs</li>
 <li>Datapacks</li>
 <li>Shaders</li>
 <li>Custom Worlds</li>
 </ul>
-<p>.jar mods are not supported.</p>
+<p style="margin-top:10px;">.jar mods are not supported.</p>
 </div>
 
 </div>
+
+<!-- SUPPORT -->
 
 <div id="support" class="page">
 
@@ -283,7 +292,7 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 
 <div class="card">
 <p>If you need help contact:</p>
-<p><b>ishaandiwaker2013@gmail.com</b></p>
+<p style="font-weight:700;margin-top:10px;">ishaandiwaker2013@gmail.com</p>
 </div>
 
 </div>
@@ -304,13 +313,9 @@ function checkPassword(){
 let pass=document.getElementById("password").value;
 
 if(pass==="D1$ney1234"){
-
 document.getElementById("lockscreen").style.display="none";
-
 }else{
-
 document.getElementById("error").innerText="Incorrect password";
-
 }
 
 }
