@@ -8,34 +8,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Inter',sans-serif;
-cursor:url("https://cur.cursors-4u.net/games/gam-15/gam1422.cur"),auto;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;
+cursor:url("https://cur.cursors-4u.net/games/gam-15/gam1422.cur"),auto;}
 
 body{
 background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
-color:#e2e8f0;
+color:white;
 display:flex;
 min-height:100vh;
-overflow:hidden;
 }
 
 /* GLASS */
-
 .glass{
 background:rgba(255,255,255,0.05);
 backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,0.1);
-box-shadow:0 0 40px rgba(0,255,200,0.05);
+}
+
+/* POINTS */
+#pointsBox{
+position:fixed;
+top:20px;
+right:20px;
+padding:12px 18px;
+border-radius:12px;
+z-index:1000;
+font-weight:600;
 }
 
 /* PASSWORD */
-
 #lock{
 position:fixed;
 width:100%;
@@ -45,101 +46,28 @@ justify-content:center;
 align-items:center;
 z-index:9999;
 }
-
-.lockbox{
-padding:40px;
-border-radius:16px;
-width:300px;
-text-align:center;
-}
-
-.lockbox input{
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-border:none;
-}
-
-.lockbox button{
-margin-top:10px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#00ffcc;
-color:black;
-font-weight:700;
-}
+.lockbox{padding:40px;border-radius:16px;width:300px;text-align:center;}
+.lockbox input{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:none;}
+.lockbox button{margin-top:10px;width:100%;padding:12px;border:none;border-radius:10px;background:#00ffcc;color:black;font-weight:700;}
 
 /* SIDEBAR */
-
-.sidebar{
-width:240px;
-padding:25px;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-.sidebar h2{
-font-size:1.5rem;
-color:#00ffcc;
-}
-
-.sidebar button{
-padding:12px;
-border:none;
-border-radius:10px;
-background:rgba(255,255,255,0.05);
-color:white;
-cursor:pointer;
-transition:0.2s;
-}
-
-.sidebar button:hover{
-background:rgba(0,255,200,0.2);
-transform:translateX(5px);
-}
+.sidebar{width:240px;padding:25px;display:flex;flex-direction:column;gap:15px;}
+.sidebar h2{color:#00ffcc;}
+.sidebar button{padding:12px;border:none;border-radius:10px;background:rgba(255,255,255,0.05);color:white;cursor:pointer;}
+.sidebar button:hover{background:rgba(0,255,200,0.2);}
 
 /* TEAM */
-
-.team{
-margin-top:auto;
-padding:15px;
-border-radius:12px;
-font-size:0.9rem;
-}
+.team{margin-top:auto;padding:15px;border-radius:12px;font-size:0.9rem;}
 
 /* MAIN */
-
-.main{
-flex:1;
-padding:40px;
-overflow-y:auto;
-}
-
-.page{
-display:none;
-opacity:0;
-transition:0.4s;
-}
-
-.active{
-display:block;
-opacity:1;
-}
+.main{flex:1;padding:40px;}
+.page{display:none;}
+.active{display:block;}
 
 /* CARD */
-
-.card{
-padding:25px;
-border-radius:15px;
-margin-bottom:20px;
-}
+.card{padding:25px;border-radius:15px;margin-bottom:20px;}
 
 /* BUTTON */
-
 .btn{
 display:block;
 text-align:center;
@@ -150,91 +78,59 @@ background:#00ffcc;
 color:black;
 font-weight:700;
 text-decoration:none;
-transition:0.2s;
 }
 
-.btn:hover{
-box-shadow:0 0 20px #00ffcc;
-transform:translateY(-2px);
-}
-
-/* STATUS PULSE */
-
-.status{
-padding:15px;
-border-radius:12px;
-margin-bottom:20px;
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%{box-shadow:0 0 5px #00ffcc;}
-50%{box-shadow:0 0 25px #00ffcc;}
-100%{box-shadow:0 0 5px #00ffcc;}
-}
-
-/* TYPING */
-
-.typing{
-border-right:2px solid #00ffcc;
-white-space:nowrap;
-overflow:hidden;
-animation:typing 4s steps(40) infinite alternate;
-}
-
-@keyframes typing{
-from{width:0}
-to{width:100%}
-}
+/* GRID */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
 /* CODE */
-
-code{
-background:black;
-padding:10px;
-border-radius:8px;
-display:block;
-margin-top:10px;
-color:#00ffcc;
-}
+code{background:black;padding:10px;border-radius:8px;display:block;margin-top:10px;color:#00ffcc;}
 
 /* COPY */
+.copy{margin-top:10px;padding:10px;border:none;border-radius:8px;background:#00ffcc;color:black;cursor:pointer;}
 
-.copy{
-margin-top:10px;
-padding:10px;
-border:none;
-border-radius:8px;
-background:#00ffcc;
-color:black;
-cursor:pointer;
+/* STATUS */
+.status{padding:15px;border-radius:12px;margin-bottom:20px;}
+
+/* TIERS */
+.tier{padding:20px;border-radius:12px;margin-bottom:15px;background:rgba(255,255,255,0.05);}
+
+/* DOWNLOAD BOX */
+#downloadBox{
+position:fixed;
+bottom:30px;
+right:30px;
+width:300px;
+padding:20px;
+border-radius:12px;
+display:none;
+z-index:999;
 }
-
-/* TITLE GLOW */
-
-h1{
-font-size:2.5rem;
-color:#00ffcc;
-text-shadow:0 0 10px #00ffcc;
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- POINTS DISPLAY -->
+<div id="pointsBox" class="glass">
+🪙 Plat Points: <span id="points">10</span>
+</div>
+
+<!-- PASSWORD -->
 <div id="lock">
 <div class="lockbox glass">
 <h2>Platinum Launcher</h2>
-<input id="pass" type="password">
+<input id="pass" type="password" placeholder="Enter Password">
 <button onclick="unlock()">Enter</button>
 <p id="err"></p>
 </div>
 </div>
 
+<!-- SIDEBAR -->
 <div class="sidebar glass">
 <h2>Platinum</h2>
 
+<button onclick="show('tiers')">Membership</button>
 <button onclick="show('home')">Home</button>
 <button onclick="show('instructions')">Instructions</button>
 <button onclick="show('mods')">Mods</button>
@@ -247,37 +143,55 @@ text-shadow:0 0 10px #00ffcc;
 </div>
 </div>
 
+<!-- MAIN -->
 <div class="main">
 
-<div id="home" class="page active">
-<h1>Platinum Launcher</h1>
+<div id="tiers" class="page active">
+<h1>Membership</h1>
+<div class="tier"><h3>Free</h3>Basic launcher</div>
+<div class="tier"><h3>VIP</h3>Extra mods</div>
+<div class="tier"><h3>Elite VIP</h3>Beta features</div>
+</div>
+
+<div id="home" class="page">
+<h1 style="color:#00ffcc;">Platinum Launcher</h1>
 
 <div class="status glass">
 ● ONLINE | v1.21.11 | STABLE
 </div>
 
 <div class="card glass">
-<a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn">
+<h3>Download Launcher</h3>
+<a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn" onclick="startDownload()">
 Download Launcher
 </a>
+</div>
+
+<div class="card glass">
+<h3>Requirements</h3>
+
+<a href="https://nodejs.org" class="btn">Download Node.js</a>
+
+<div class="grid">
+<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">Java Apple</a>
+<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">Java Intel</a>
+</div>
+
 </div>
 
 </div>
 
 <div id="instructions" class="page">
-
-<h1>Setup</h1>
+<h1>Instructions</h1>
 
 <div class="card glass">
-
-<p class="typing">Follow these steps to launch...</p>
-
-<ol style="margin-top:15px">
-<li>Download files</li>
-<li>Unzip launcher</li>
-<li>Move to Desktop</li>
+<ol>
+<li>Download Node.js & Java</li>
+<li>Download launcher</li>
+<li>Unzip file</li>
+<li>Drag to Desktop</li>
 <li>Open Terminal</li>
-<li>Run command</li>
+<li>Paste command</li>
 </ol>
 
 <code id="cmd">
@@ -285,32 +199,41 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 </code>
 
 <button class="copy" onclick="copy()">Copy Command</button>
-
 </div>
 
 </div>
 
 <div id="mods" class="page">
 <h1>Mods</h1>
-
 <div class="card glass">X-Ray → resourcepacks</div>
 <div class="card glass">OneBlock → saves</div>
 <div class="card glass">No jar mods</div>
-
 </div>
 
 <div id="support" class="page">
 <h1>Support</h1>
-
 <div class="card glass">
 ishaandiwaker2013@gmail.com
 </div>
+</div>
 
 </div>
 
+<!-- DOWNLOAD POPUP -->
+<div id="downloadBox" class="glass">
+<b id="statusText">Preparing...</b>
+<div style="margin-top:10px;height:8px;background:rgba(255,255,255,0.1);border-radius:10px;">
+<div id="bar" style="height:100%;width:0%;background:#00ffcc;"></div>
+</div>
 </div>
 
 <script>
+
+let points = 10
+
+function updatePoints(){
+document.getElementById("points").innerText = points
+}
 
 function unlock(){
 if(document.getElementById("pass").value==="D1$ney1234"){
@@ -327,8 +250,52 @@ document.getElementById(id).classList.add("active")
 
 function copy(){
 navigator.clipboard.writeText(document.getElementById("cmd").innerText)
-alert("Copied")
+alert("Command copied")
 }
+
+/* DOWNLOAD + POINTS */
+function startDownload(){
+
+points += 100
+updatePoints()
+
+let box = document.getElementById("downloadBox")
+let bar = document.getElementById("bar")
+let text = document.getElementById("statusText")
+
+box.style.display = "block"
+
+let progress = 0
+
+let interval = setInterval(()=>{
+
+progress += 5
+bar.style.width = progress + "%"
+
+if(progress < 30){
+text.innerText = "Preparing files..."
+}
+else if(progress < 70){
+text.innerText = "Downloading..."
+}
+else if(progress < 95){
+text.innerText = "Installing..."
+}
+else{
+text.innerText = "Done ✔"
+clearInterval(interval)
+
+setTimeout(()=>{
+box.style.display="none"
+bar.style.width="0%"
+},1500)
+}
+
+},150)
+
+}
+
+updatePoints()
 
 </script>
 
