@@ -9,233 +9,134 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-
-body{
-background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
-color:white;
-display:flex;
-min-height:100vh;
-}
-
-/* GLASS */
-.glass{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(20px);
-border:1px solid rgba(255,255,255,0.1);
-}
+body{background:linear-gradient(135deg,#020617,#0f172a,#1e293b);color:white;display:flex;min-height:100vh;}
+.glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1);}
 
 /* POINTS */
-#pointsBox{
-position:fixed;
-top:20px;
-right:20px;
-padding:12px 18px;
-border-radius:12px;
-z-index:1000;
-}
+#pointsBox{position:fixed;top:20px;right:20px;padding:12px;border-radius:12px;}
+#badge{position:fixed;top:70px;right:20px;padding:8px 12px;border-radius:10px;background:#00ffcc;color:black;font-weight:700}
 
 /* LOCK */
-#lock{
-position:fixed;
-width:100%;
-height:100%;
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
+#lock{position:fixed;width:100%;height:100%;display:flex;justify-content:center;align-items:center;z-index:9999;}
+.lockbox{padding:40px;border-radius:16px;width:360px;text-align:center;}
+.sub{margin-top:10px;padding:12px;border-radius:10px;background:rgba(255,255,255,0.05);cursor:pointer;}
+.selected{border:2px solid #00ffcc;}
+input{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:none;}
+button{margin-top:10px;width:100%;padding:12px;border:none;border-radius:10px;background:#00ffcc;color:black;font-weight:700;}
 
-.lockbox{
-padding:40px;
-border-radius:16px;
-width:360px;
-text-align:center;
-}
-
-/* SUB BUTTONS */
-.sub{
-margin-top:10px;
-padding:12px;
-border-radius:10px;
-background:rgba(255,255,255,0.05);
-cursor:pointer;
-}
-.sub:hover{
-background:rgba(0,255,200,0.2);
-}
-
-.selected{
-border:2px solid #00ffcc;
-}
-
-/* INPUT */
-.lockbox input{
-width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:10px;
-border:none;
-}
-
-.lockbox button{
-margin-top:10px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-background:#00ffcc;
-color:black;
-font-weight:700;
-}
-
-/* SIDEBAR */
-.sidebar{width:240px;padding:25px;display:flex;flex-direction:column;gap:15px;}
-.sidebar h2{color:#00ffcc;}
-.sidebar button{padding:12px;border:none;border-radius:10px;background:rgba(255,255,255,0.05);color:white;cursor:pointer;}
-
-/* MAIN */
+/* LAYOUT */
+.sidebar{width:240px;padding:25px;display:flex;flex-direction:column;gap:10px;}
+.sidebar button{padding:10px;border:none;border-radius:10px;background:rgba(255,255,255,0.05);color:white;cursor:pointer;}
 .main{flex:1;padding:40px;}
 .page{display:none;}
 .active{display:block;}
 
-.card{padding:25px;border-radius:15px;margin-bottom:20px;}
-
-.btn{
-display:block;
-text-align:center;
-padding:14px;
-margin-top:10px;
-border-radius:10px;
-background:#00ffcc;
-color:black;
-font-weight:700;
-text-decoration:none;
-}
-
+.card{padding:20px;border-radius:12px;margin-bottom:15px;}
+.btn{display:block;padding:12px;margin-top:10px;background:#00ffcc;color:black;border-radius:10px;text-align:center;text-decoration:none;}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+code{background:black;padding:10px;border-radius:8px;display:block;color:#00ffcc;}
+.copy{margin-top:10px;padding:10px;border:none;border-radius:8px;background:#00ffcc;}
 
-code{background:black;padding:10px;border-radius:8px;display:block;margin-top:10px;color:#00ffcc;}
-
-.copy{margin-top:10px;padding:10px;border:none;border-radius:8px;background:#00ffcc;color:black;cursor:pointer;}
-
-.status{padding:15px;border-radius:12px;margin-bottom:20px;}
-
-#downloadBox{
-position:fixed;
-bottom:30px;
-right:30px;
-width:300px;
-padding:20px;
-border-radius:12px;
-display:none;
-z-index:999;
-}
+.locked{opacity:0.4;}
 </style>
 </head>
 
 <body>
 
-<!-- POINTS -->
-<div id="pointsBox" class="glass">
-🪙 Plat Points: <span id="points">10</span>
-</div>
+<div id="pointsBox" class="glass">🪙 <span id="points">10</span></div>
+<div id="badge" style="display:none;"></div>
 
-<!-- LOCK SCREEN -->
+<!-- LOCK -->
 <div id="lock">
 <div class="lockbox glass">
-
 <h2>Select Membership</h2>
-
-<div id="free" class="sub" onclick="selectSub(this)">Free</div>
-<div id="vip" class="sub" onclick="selectSub(this)">VIP</div>
-<div id="elite" class="sub" onclick="selectSub(this)">Elite VIP</div>
-
-<input id="pass" type="password" placeholder="Enter Password">
+<div class="sub" onclick="selectSub(this,'Free')">Free</div>
+<div class="sub" onclick="selectSub(this,'VIP')">VIP</div>
+<div class="sub" onclick="selectSub(this,'Elite')">Elite VIP</div>
+<input id="pass" type="password">
 <button onclick="unlock()">Enter</button>
-
 <p id="err"></p>
-
 </div>
 </div>
 
 <!-- SIDEBAR -->
 <div class="sidebar glass">
-<h2>Platinum</h2>
 <button onclick="show('home')">Home</button>
-<button onclick="show('instructions')">Instructions</button>
 <button onclick="show('mods')">Mods</button>
-<button onclick="show('support')">Support</button>
+<button onclick="show('terminal')">Terminal</button>
+<button onclick="show('updates')">Updates</button>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
 <div id="home" class="page active">
-<h1 style="color:#00ffcc;">Platinum Launcher</h1>
+<h1>Platinum Launcher</h1>
 
-<div class="status glass">
-● ONLINE | v1.21.11 | STABLE
+<div class="card glass">
+👥 Users Online: <span id="users">120</span><br>
+📥 Downloads Today: <span id="downloads">400</span>
 </div>
 
 <div class="card glass">
-<a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn" onclick="startDownload()">Download Launcher</a>
+<a href="#" class="btn" onclick="startDownload(event)">Download</a>
+<button onclick="claim()">Claim Daily +50</button>
 </div>
 
 <div class="card glass">
-<a href="https://nodejs.org" class="btn">Download Node.js</a>
-
-<div class="grid">
-<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">Java Apple</a>
-<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">Java Intel</a>
-</div>
+<button onclick="buyVIP()">Buy VIP (100)</button>
+<button onclick="buyElite()">Buy Elite (250)</button>
 </div>
 
-</div>
-
-<div id="instructions" class="page">
-<h1>Instructions</h1>
-
-<code id="cmd">
-xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/PlatinumLauncher && npm start
-</code>
-
-<button class="copy" onclick="copy()">Copy Command</button>
 </div>
 
 <div id="mods" class="page">
 <h1>Mods</h1>
-<div class="card glass">X-Ray</div>
-<div class="card glass">OneBlock</div>
+<div class="card glass">Free Mods</div>
+<div id="vipMods" class="card glass locked">🔒 VIP Mods</div>
 </div>
 
-<div id="support" class="page">
-<h1>Support</h1>
-<div class="card glass">ishaandiwaker2013@gmail.com</div>
+<div id="terminal" class="page">
+<h1>Terminal</h1>
+<div class="card glass" id="terminalText"></div>
 </div>
 
+<div id="updates" class="page">
+<h1>Updates</h1>
+<div class="card glass">
+v1.21.11<br>
+- Added VIP system<br>
+- Added points<br>
+- Improved UI
+</div>
 </div>
 
-<!-- DOWNLOAD -->
-<div id="downloadBox" class="glass">
-<b id="statusText">Preparing...</b>
-<div style="margin-top:10px;height:8px;background:rgba(255,255,255,0.1);">
-<div id="bar" style="height:100%;width:0%;background:#00ffcc;"></div>
-</div>
 </div>
 
 <script>
-
 let points=10
-function updatePoints(){document.getElementById("points").innerText=points}
+let tier="Free"
 
-function selectSub(el){
+function update(){
+document.getElementById("points").innerText=points
+document.getElementById("badge").innerText="👑 "+tier+" ACTIVE"
+document.getElementById("badge").style.display="block"
+
+if(tier!=="Free"){
+document.getElementById("vipMods").classList.remove("locked")
+}
+}
+
+function selectSub(el,t){
 document.querySelectorAll(".sub").forEach(s=>s.classList.remove("selected"))
 el.classList.add("selected")
+tier=t
 }
 
 function unlock(){
 if(document.getElementById("pass").value==="D1$ney1234"){
 document.getElementById("lock").style.display="none"
+update()
 }else{
 document.getElementById("err").innerText="Wrong password"
 }
@@ -246,39 +147,43 @@ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"))
 document.getElementById(id).classList.add("active")
 }
 
-function copy(){
-navigator.clipboard.writeText(document.getElementById("cmd").innerText)
-alert("Copied")
-}
-
-function startDownload(){
+function startDownload(e){
+e.preventDefault()
+window.open("https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p")
 points+=100
-updatePoints()
-
-let box=document.getElementById("downloadBox")
-let bar=document.getElementById("bar")
-let text=document.getElementById("statusText")
-
-box.style.display="block"
-
-let progress=0
-let interval=setInterval(()=>{
-progress+=5
-bar.style.width=progress+"%"
-
-if(progress<30) text.innerText="Preparing..."
-else if(progress<70) text.innerText="Downloading..."
-else if(progress<95) text.innerText="Installing..."
-else{
-text.innerText="Done ✔"
-clearInterval(interval)
-setTimeout(()=>{box.style.display="none";bar.style.width="0%"},1500)
-}
-},150)
+update()
 }
 
-updatePoints()
+function claim(){
+points+=50
+update()
+}
 
+function buyVIP(){
+if(points>=100){points-=100;tier="VIP";update()}
+}
+
+function buyElite(){
+if(points>=250){points-=250;tier="Elite";update()}
+}
+
+/* fake stats */
+setInterval(()=>{
+document.getElementById("users").innerText=100+Math.floor(Math.random()*50)
+document.getElementById("downloads").innerText=300+Math.floor(Math.random()*200)
+},2000)
+
+/* terminal */
+let lines=["Initializing...","Loading modules...","Connecting...","Success"]
+let i=0
+setInterval(()=>{
+if(i<lines.length){
+document.getElementById("terminalText").innerHTML+="<br>> "+lines[i]
+i++
+}
+},800)
+
+update()
 </script>
 
 </body>
