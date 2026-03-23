@@ -168,6 +168,15 @@ color:white;
 cursor:pointer;
 }
 
+/* VERSION PANEL */
+
+.status{
+background:rgba(255,255,255,0.2);
+padding:15px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
 footer{
 margin-top:40px;
 opacity:0.85;
@@ -203,10 +212,14 @@ opacity:0.85;
 
 <div class="team">
 <b>Team</b><br><br>
+
 👑 Owner<br>
-Ishaan<br><br>
+Ishaan<br>
+<small>RAYAN WILL NEVER OWN THIS WEBSITE</small><br><br>
+
 🛠 Co-Owner / Support Head<br>
 Panshul
+
 </div>
 
 </div>
@@ -215,11 +228,15 @@ Panshul
 
 <div class="main">
 
-<!-- HOME -->
-
 <div id="home" class="page active">
 
 <h1>Platinum Launcher</h1>
+
+<div class="status">
+<b>Launcher Status:</b> ● Online<br>
+<b>Version:</b> 1.21.11<br>
+<b>Build:</b> Stable
+</div>
 
 <div class="card">
 
@@ -261,14 +278,12 @@ Java (Intel)
 
 <div class="card">
 
-<p>Follow these steps:</p>
-
-<ol style="margin-top:10px;line-height:1.8">
+<ol style="line-height:1.8">
 
 <li>Download Node.js and Java.</li>
 <li>Download Platinum Launcher.</li>
 <li>Unzip the launcher ZIP file.</li>
-<li>Drag the <b>PlatinumLauncher</b> folder to your Desktop.</li>
+<li>Drag the PlatinumLauncher folder to Desktop.</li>
 <li>Open Terminal.</li>
 <li>Paste the command below.</li>
 
@@ -291,22 +306,16 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 <h1>Mods</h1>
 
 <div class="card">
-<b>X-Ray</b><br>
-Place the resource pack inside the <b>resourcepacks</b> folder.
+X-Ray → resourcepacks folder
 </div>
 
 <div class="card">
-<b>OneBlock</b><br>
-Put the downloaded world inside the <b>saves</b> folder.
+OneBlock → saves folder
 </div>
 
 <div class="card">
-<b>Supported Content</b><br>
-Resource Packs<br>
-Shaders<br>
-Datapacks<br>
-Worlds<br><br>
-Jar mods are not supported.
+Supports: resource packs, shaders, worlds, datapacks<br>
+Jar mods not supported
 </div>
 
 </div>
@@ -318,13 +327,7 @@ Jar mods are not supported.
 <h1>Support</h1>
 
 <div class="card">
-
-Contact support:
-
-<br><br>
-
-<b>ishaandiwaker2013@gmail.com</b>
-
+ishaandiwaker2013@gmail.com
 </div>
 
 </div>
@@ -339,35 +342,24 @@ Hope you enjoy using Platinum Launcher!
 <script>
 
 function checkPass(){
-
 let pass=document.getElementById("pass").value
-
 if(pass==="D1$ney1234"){
 document.getElementById("lockscreen").style.display="none"
 }else{
 document.getElementById("error").innerText="Incorrect password"
 }
-
 }
 
 function showPage(page){
-
 let pages=document.querySelectorAll(".page")
-
 pages.forEach(p=>p.classList.remove("active"))
-
 document.getElementById(page).classList.add("active")
-
 }
 
 function copyCmd(){
-
 let text=document.getElementById("cmd").innerText
-
 navigator.clipboard.writeText(text)
-
 alert("Command copied")
-
 }
 
 </script>
