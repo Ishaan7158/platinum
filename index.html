@@ -8,8 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;
-cursor:url("https://cur.cursors-4u.net/games/gam-15/gam1422.cur"),auto;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
 
 body{
 background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
@@ -33,10 +32,9 @@ right:20px;
 padding:12px 18px;
 border-radius:12px;
 z-index:1000;
-font-weight:600;
 }
 
-/* PASSWORD */
+/* LOCK */
 #lock{
 position:fixed;
 width:100%;
@@ -46,28 +44,62 @@ justify-content:center;
 align-items:center;
 z-index:9999;
 }
-.lockbox{padding:40px;border-radius:16px;width:300px;text-align:center;}
-.lockbox input{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:none;}
-.lockbox button{margin-top:10px;width:100%;padding:12px;border:none;border-radius:10px;background:#00ffcc;color:black;font-weight:700;}
+
+.lockbox{
+padding:40px;
+border-radius:16px;
+width:360px;
+text-align:center;
+}
+
+/* SUB BUTTONS */
+.sub{
+margin-top:10px;
+padding:12px;
+border-radius:10px;
+background:rgba(255,255,255,0.05);
+cursor:pointer;
+}
+.sub:hover{
+background:rgba(0,255,200,0.2);
+}
+
+.selected{
+border:2px solid #00ffcc;
+}
+
+/* INPUT */
+.lockbox input{
+width:100%;
+padding:12px;
+margin-top:10px;
+border-radius:10px;
+border:none;
+}
+
+.lockbox button{
+margin-top:10px;
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#00ffcc;
+color:black;
+font-weight:700;
+}
 
 /* SIDEBAR */
 .sidebar{width:240px;padding:25px;display:flex;flex-direction:column;gap:15px;}
 .sidebar h2{color:#00ffcc;}
 .sidebar button{padding:12px;border:none;border-radius:10px;background:rgba(255,255,255,0.05);color:white;cursor:pointer;}
-.sidebar button:hover{background:rgba(0,255,200,0.2);}
-
-/* TEAM */
-.team{margin-top:auto;padding:15px;border-radius:12px;font-size:0.9rem;}
 
 /* MAIN */
 .main{flex:1;padding:40px;}
 .page{display:none;}
 .active{display:block;}
 
-/* CARD */
 .card{padding:25px;border-radius:15px;margin-bottom:20px;}
 
-/* BUTTON */
 .btn{
 display:block;
 text-align:center;
@@ -80,22 +112,14 @@ font-weight:700;
 text-decoration:none;
 }
 
-/* GRID */
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
-/* CODE */
 code{background:black;padding:10px;border-radius:8px;display:block;margin-top:10px;color:#00ffcc;}
 
-/* COPY */
 .copy{margin-top:10px;padding:10px;border:none;border-radius:8px;background:#00ffcc;color:black;cursor:pointer;}
 
-/* STATUS */
 .status{padding:15px;border-radius:12px;margin-bottom:20px;}
 
-/* TIERS */
-.tier{padding:20px;border-radius:12px;margin-bottom:15px;background:rgba(255,255,255,0.05);}
-
-/* DOWNLOAD BOX */
 #downloadBox{
 position:fixed;
 bottom:30px;
@@ -111,49 +135,42 @@ z-index:999;
 
 <body>
 
-<!-- POINTS DISPLAY -->
+<!-- POINTS -->
 <div id="pointsBox" class="glass">
 🪙 Plat Points: <span id="points">10</span>
 </div>
 
-<!-- PASSWORD -->
+<!-- LOCK SCREEN -->
 <div id="lock">
 <div class="lockbox glass">
-<h2>Platinum Launcher</h2>
+
+<h2>Select Membership</h2>
+
+<div id="free" class="sub" onclick="selectSub(this)">Free</div>
+<div id="vip" class="sub" onclick="selectSub(this)">VIP</div>
+<div id="elite" class="sub" onclick="selectSub(this)">Elite VIP</div>
+
 <input id="pass" type="password" placeholder="Enter Password">
 <button onclick="unlock()">Enter</button>
+
 <p id="err"></p>
+
 </div>
 </div>
 
 <!-- SIDEBAR -->
 <div class="sidebar glass">
 <h2>Platinum</h2>
-
-<button onclick="show('tiers')">Membership</button>
 <button onclick="show('home')">Home</button>
 <button onclick="show('instructions')">Instructions</button>
 <button onclick="show('mods')">Mods</button>
 <button onclick="show('support')">Support</button>
-
-<div class="team glass">
-👑 Ishaan<br>
-<small>RAYAN WILL NEVER OWN THIS WEBSITE</small><br><br>
-🛠 Panshul
-</div>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-<div id="tiers" class="page active">
-<h1>Membership</h1>
-<div class="tier"><h3>Free</h3>Basic launcher</div>
-<div class="tier"><h3>VIP</h3>Extra mods</div>
-<div class="tier"><h3>Elite VIP</h3>Beta features</div>
-</div>
-
-<div id="home" class="page">
+<div id="home" class="page active">
 <h1 style="color:#00ffcc;">Platinum Launcher</h1>
 
 <div class="status glass">
@@ -161,38 +178,22 @@ z-index:999;
 </div>
 
 <div class="card glass">
-<h3>Download Launcher</h3>
-<a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn" onclick="startDownload()">
-Download Launcher
-</a>
+<a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn" onclick="startDownload()">Download Launcher</a>
 </div>
 
 <div class="card glass">
-<h3>Requirements</h3>
-
 <a href="https://nodejs.org" class="btn">Download Node.js</a>
 
 <div class="grid">
 <a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">Java Apple</a>
 <a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">Java Intel</a>
 </div>
-
 </div>
 
 </div>
 
 <div id="instructions" class="page">
 <h1>Instructions</h1>
-
-<div class="card glass">
-<ol>
-<li>Download Node.js & Java</li>
-<li>Download launcher</li>
-<li>Unzip file</li>
-<li>Drag to Desktop</li>
-<li>Open Terminal</li>
-<li>Paste command</li>
-</ol>
 
 <code id="cmd">
 xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/PlatinumLauncher && npm start
@@ -201,38 +202,35 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 <button class="copy" onclick="copy()">Copy Command</button>
 </div>
 
-</div>
-
 <div id="mods" class="page">
 <h1>Mods</h1>
-<div class="card glass">X-Ray → resourcepacks</div>
-<div class="card glass">OneBlock → saves</div>
-<div class="card glass">No jar mods</div>
+<div class="card glass">X-Ray</div>
+<div class="card glass">OneBlock</div>
 </div>
 
 <div id="support" class="page">
 <h1>Support</h1>
-<div class="card glass">
-ishaandiwaker2013@gmail.com
-</div>
+<div class="card glass">ishaandiwaker2013@gmail.com</div>
 </div>
 
 </div>
 
-<!-- DOWNLOAD POPUP -->
+<!-- DOWNLOAD -->
 <div id="downloadBox" class="glass">
 <b id="statusText">Preparing...</b>
-<div style="margin-top:10px;height:8px;background:rgba(255,255,255,0.1);border-radius:10px;">
+<div style="margin-top:10px;height:8px;background:rgba(255,255,255,0.1);">
 <div id="bar" style="height:100%;width:0%;background:#00ffcc;"></div>
 </div>
 </div>
 
 <script>
 
-let points = 10
+let points=10
+function updatePoints(){document.getElementById("points").innerText=points}
 
-function updatePoints(){
-document.getElementById("points").innerText = points
+function selectSub(el){
+document.querySelectorAll(".sub").forEach(s=>s.classList.remove("selected"))
+el.classList.add("selected")
 }
 
 function unlock(){
@@ -250,49 +248,33 @@ document.getElementById(id).classList.add("active")
 
 function copy(){
 navigator.clipboard.writeText(document.getElementById("cmd").innerText)
-alert("Command copied")
+alert("Copied")
 }
 
-/* DOWNLOAD + POINTS */
 function startDownload(){
-
-points += 100
+points+=100
 updatePoints()
 
-let box = document.getElementById("downloadBox")
-let bar = document.getElementById("bar")
-let text = document.getElementById("statusText")
+let box=document.getElementById("downloadBox")
+let bar=document.getElementById("bar")
+let text=document.getElementById("statusText")
 
-box.style.display = "block"
+box.style.display="block"
 
-let progress = 0
+let progress=0
+let interval=setInterval(()=>{
+progress+=5
+bar.style.width=progress+"%"
 
-let interval = setInterval(()=>{
-
-progress += 5
-bar.style.width = progress + "%"
-
-if(progress < 30){
-text.innerText = "Preparing files..."
-}
-else if(progress < 70){
-text.innerText = "Downloading..."
-}
-else if(progress < 95){
-text.innerText = "Installing..."
-}
+if(progress<30) text.innerText="Preparing..."
+else if(progress<70) text.innerText="Downloading..."
+else if(progress<95) text.innerText="Installing..."
 else{
-text.innerText = "Done ✔"
+text.innerText="Done ✔"
 clearInterval(interval)
-
-setTimeout(()=>{
-box.style.display="none"
-bar.style.width="0%"
-},1500)
+setTimeout(()=>{box.style.display="none";bar.style.width="0%"},1500)
 }
-
 },150)
-
 }
 
 updatePoints()
