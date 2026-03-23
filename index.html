@@ -18,21 +18,28 @@ cursor:url("https://cur.cursors-4u.net/games/gam-15/gam1422.cur"),auto;
 }
 
 body{
-background:linear-gradient(135deg,#4f46e5,#9333ea);
+background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
+color:white;
 min-height:100vh;
 display:flex;
-color:white;
+}
+
+/* GLASS BASE */
+
+.glass{
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.15);
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
 }
 
 /* PASSWORD */
 
 #lockscreen{
 position:fixed;
-top:0;
-left:0;
 width:100%;
 height:100%;
-background:linear-gradient(135deg,#4f46e5,#9333ea);
+background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
 display:flex;
 align-items:center;
 justify-content:center;
@@ -40,12 +47,10 @@ z-index:9999;
 }
 
 .lockbox{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
 padding:40px;
-border-radius:15px;
+border-radius:16px;
 text-align:center;
-width:300px;
+width:320px;
 }
 
 .lockbox input{
@@ -53,7 +58,8 @@ width:100%;
 padding:12px;
 margin-top:12px;
 border:none;
-border-radius:8px;
+border-radius:10px;
+outline:none;
 }
 
 .lockbox button{
@@ -61,50 +67,51 @@ margin-top:10px;
 width:100%;
 padding:12px;
 border:none;
-border-radius:8px;
-background:#22c55e;
-color:white;
-font-weight:600;
+border-radius:10px;
+background:linear-gradient(90deg,#22c55e,#4ade80);
+color:black;
+font-weight:700;
 cursor:pointer;
 }
 
 /* SIDEBAR */
 
 .sidebar{
-width:230px;
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(15px);
+width:240px;
 padding:25px;
 display:flex;
 flex-direction:column;
-gap:18px;
+gap:20px;
 }
 
 .sidebar h2{
-font-size:1.4rem;
+font-size:1.5rem;
+font-weight:800;
 }
 
 .sidebar button{
 padding:12px;
 border:none;
-border-radius:8px;
-background:rgba(255,255,255,0.2);
+border-radius:10px;
+background:rgba(255,255,255,0.1);
 color:white;
 cursor:pointer;
+transition:0.2s;
 }
 
 .sidebar button:hover{
-background:rgba(255,255,255,0.3);
+background:rgba(255,255,255,0.2);
+transform:translateX(4px);
 }
 
-/* TEAM PANEL */
+/* TEAM */
 
 .team{
 margin-top:auto;
-background:rgba(255,255,255,0.2);
 padding:15px;
-border-radius:10px;
+border-radius:12px;
 font-size:0.9rem;
+line-height:1.6;
 }
 
 /* MAIN */
@@ -122,64 +129,79 @@ display:none;
 display:block;
 }
 
+/* CARD */
+
 .card{
-background:rgba(255,255,255,0.15);
-backdrop-filter:blur(12px);
 padding:25px;
-border-radius:14px;
+border-radius:16px;
 margin-bottom:20px;
 }
+
+/* BUTTON */
 
 .btn{
 display:block;
 text-align:center;
 padding:14px;
 margin-top:10px;
-border-radius:10px;
-background:#22c55e;
-color:white;
+border-radius:12px;
+background:linear-gradient(90deg,#22c55e,#4ade80);
+color:black;
+font-weight:700;
 text-decoration:none;
-font-weight:600;
+transition:0.2s;
 }
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* GRID */
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:10px;
-margin-top:10px;
 }
 
+/* CODE */
+
 code{
-background:rgba(0,0,0,0.25);
+background:rgba(0,0,0,0.4);
 padding:12px;
-border-radius:8px;
+border-radius:10px;
 display:block;
 margin-top:10px;
 word-break:break-all;
 }
 
+/* COPY */
+
 .copy{
 margin-top:10px;
 padding:10px;
 border:none;
-border-radius:8px;
+border-radius:10px;
 background:#22c55e;
-color:white;
+color:black;
 cursor:pointer;
 }
 
-/* VERSION PANEL */
+/* STATUS */
 
 .status{
-background:rgba(255,255,255,0.2);
-padding:15px;
-border-radius:10px;
+padding:18px;
+border-radius:14px;
 margin-bottom:20px;
+line-height:1.8;
 }
+
+/* FOOTER */
 
 footer{
 margin-top:40px;
-opacity:0.85;
+opacity:0.7;
 }
 
 </style>
@@ -190,7 +212,7 @@ opacity:0.85;
 <!-- PASSWORD -->
 
 <div id="lockscreen">
-<div class="lockbox">
+<div class="lockbox glass">
 <h2>Platinum Launcher</h2>
 <p>Enter Password</p>
 <input id="pass" type="password">
@@ -201,7 +223,7 @@ opacity:0.85;
 
 <!-- SIDEBAR -->
 
-<div class="sidebar">
+<div class="sidebar glass">
 
 <h2>Platinum</h2>
 
@@ -210,7 +232,7 @@ opacity:0.85;
 <button onclick="showPage('mods')">Mods</button>
 <button onclick="showPage('support')">Support</button>
 
-<div class="team">
+<div class="team glass">
 <b>Team</b><br><br>
 
 👑 Owner<br>
@@ -219,7 +241,6 @@ Ishaan<br>
 
 🛠 Co-Owner / Support Head<br>
 Panshul
-
 </div>
 
 </div>
@@ -228,42 +249,34 @@ Panshul
 
 <div class="main">
 
+<!-- HOME -->
+
 <div id="home" class="page active">
 
 <h1>Platinum Launcher</h1>
 
-<div class="status">
-<b>Launcher Status:</b> ● Online<br>
+<div class="status glass">
+<b>Status:</b> ● Online<br>
 <b>Version:</b> 1.21.11<br>
 <b>Build:</b> Stable
 </div>
 
-<div class="card">
-
+<div class="card glass">
 <h3>Download Launcher</h3>
 
 <a href="https://drive.google.com/uc?export=download&id=1QMZPIPMqHnSlb30rxk5El_pXTCfBu31p" class="btn">
 Download Platinum Launcher
 </a>
-
 </div>
 
-<div class="card">
-
+<div class="card glass">
 <h3>Requirements</h3>
 
 <a href="https://nodejs.org" class="btn">Download Node.js</a>
 
 <div class="grid">
-
-<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">
-Java (Apple Silicon)
-</a>
-
-<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">
-Java (Intel)
-</a>
-
+<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-aarch64_bin.dmg" class="btn">Java (Apple)</a>
+<a href="https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg" class="btn">Java (Intel)</a>
 </div>
 
 </div>
@@ -276,17 +289,15 @@ Java (Intel)
 
 <h1>Setup Instructions</h1>
 
-<div class="card">
+<div class="card glass">
 
 <ol style="line-height:1.8">
-
-<li>Download Node.js and Java.</li>
-<li>Download Platinum Launcher.</li>
-<li>Unzip the launcher ZIP file.</li>
-<li>Drag the PlatinumLauncher folder to Desktop.</li>
-<li>Open Terminal.</li>
-<li>Paste the command below.</li>
-
+<li>Download Node.js and Java</li>
+<li>Download Platinum Launcher</li>
+<li>Unzip the file</li>
+<li>Drag folder to Desktop</li>
+<li>Open Terminal</li>
+<li>Paste command below</li>
 </ol>
 
 <code id="cmd">
@@ -305,15 +316,9 @@ xattr -rd com.apple.quarantine ~/Desktop/PlatinumLauncher && cd ~/Desktop/Platin
 
 <h1>Mods</h1>
 
-<div class="card">
-X-Ray → resourcepacks folder
-</div>
-
-<div class="card">
-OneBlock → saves folder
-</div>
-
-<div class="card">
+<div class="card glass">X-Ray → resourcepacks folder</div>
+<div class="card glass">OneBlock → saves folder</div>
+<div class="card glass">
 Supports: resource packs, shaders, worlds, datapacks<br>
 Jar mods not supported
 </div>
@@ -326,7 +331,7 @@ Jar mods not supported
 
 <h1>Support</h1>
 
-<div class="card">
+<div class="card glass">
 ishaandiwaker2013@gmail.com
 </div>
 
